@@ -1,33 +1,47 @@
 // Class Word
 // Instantiates the arrays that contain individual words to be built with SentenceBuilder.
-// Aaron Roach - CSIS 312-B02
+// Aaron Roach - CSIS 312-D02
+
+import java.util.Random;
 
 public class Word
 {
+
     // instance variables
-    private String[] articles = {"the", "a", "one", "some", "any"};
-    private String[] nouns = {"boy", "girl", "dog", "town", "car"};
-    private String[] verbs = {"drove", "jumped", "ran", "walked", "skipped"};
-    private String[] prepositions = {"to", "from", "over", "under", "on"};
+    private String[] articles;
+    private String[] nouns;
+    private String[] verbs;
+    private String[] prepositions;
+    private Random randomWord = new Random();
+
+    // default constructor, requires four arrays of strings to be passed as arguments.
+    public Word(String[] articles, String[] nouns, String[] verbs, String[] prepositions)
+    {
+        this.articles = articles;
+        this.nouns = nouns;
+        this.verbs = verbs;
+        this.prepositions = prepositions;
+    }
 
     // get methods
-    public String getArticle(int i)
+    public String getArticle()
     {
-        return this.articles[i];
+        return this.articles[this.randomWord.nextInt(articles.length)];
     }
 
-    public String getNoun(int i)
+    public String getNoun()
     {
-        return this.nouns[i];
+        return this.nouns[this.randomWord.nextInt(nouns.length)];
     }
 
-    public String getVerb(int i)
+    public String getVerb()
     {
-        return this.verbs[i];
+        return this.verbs[this.randomWord.nextInt(verbs.length)];
     }
 
-    public String getPreposition(int i)
+    public String getPreposition()
     {
-        return this.prepositions[i];
+        return this.prepositions[this.randomWord.nextInt(prepositions.length)];
     }
+
 }// End of class Word
